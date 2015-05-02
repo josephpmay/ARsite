@@ -1,0 +1,148 @@
+<html>
+
+<head>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,200italic,300italic' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8">
+	<title>Augmented Reality</title>
+	<link rel="stylesheet" media="screen" href="ar2.css">
+
+	<script language=javascript>
+	//check url, redirect if not main page, or if on main page, redirect to intro js content (but update that first to reflect changes to this page)
+
+	//code for dynamically loading external javascript
+	var filesadded=""
+	
+
+	function jsGoToPage(filename)
+	{
+		//checks if file as already been loaded
+		if(filesadded.indexOf("["+filename+"]")==-1)
+		{
+			//creates javascript line to add to head
+			
+			function fuckasync(callback) {
+
+				var scriptadded = document.createElement('script')
+				scriptadded.setAttribute("type", "text/javascript")
+				scriptadded.setAttribute("src", filename + ".js")
+				
+				scriptadded.onload = callback
+				scriptadded.onreadystatechange = callback
+				//adds line to head
+				document.getElementsByTagName("head")[0].appendChild(scriptadded)
+			}
+			//adds file name to list of loaded files
+			filesadded+="["+filename+"]"
+
+			var replacePage2 = function() {
+				switch(filename)
+			{
+				case "why":
+					why.replacePage()
+					break;
+				case "introduction":
+					introduction.replacePage()
+					break;
+			}
+			}
+
+			fuckasync(replacePage2)
+		}
+		else
+		{
+			switch(filename)
+			{
+				case "why":
+					why.replacePage()
+					break;
+				case "introduction":
+					introduction.replacePage()
+					break;
+			}
+		}
+	}
+
+	</script>
+
+
+
+</head>
+
+<body>
+
+				<div id="delta" onclick="document.getElementById('nav').style.display='initial' "> 
+					<img src="delta.svg" alt="menue button">
+				 </div>
+
+
+
+	<div id="nav" > 
+		<!--IMAGE -->
+		<!--MENUE -->
+		<!--Accessability-->
+		<!--X in top left cornor-->
+		<div id="x" onclick="document.getElementById('nav').style.display='none' "> 
+			<img src="exit.svg" alt="menue exit button">
+		 </div>
+
+		<div class="menueitem"  onclick=" jsGoToPage('introduction'); document.getElementById('nav').style.display='none'; scroll(0,0)">Introduction </div>
+		<div class="menueitem"  onclick=" jsGoToPage('why'); document.getElementById('nav').style.display='none'; scroll(0,0)"> Why?</div>
+		<div class="menueitem"> UX Guide</div>
+		<div class="menueitem"> Examples</div>
+		<div class="menueitem"> Make</div>
+		<div class="menueitem"> Marketplace</div>
+
+
+	</div>
+	
+
+		<div id="page">
+
+			
+			<div id="mainContent" style="margin-top: 10vh">
+				
+				<h1 style="line-height: normal">Build an AR System</h1>
+					<p>Designing an AR system from scratch is immensely complex, even more complicated than it would be to build a cellphone from scratch. Many of the components involved are not commercially available and would have to be custom engineered. Even just an AR display by itself would be an almost insurmountable challenge to create. Many genius with PhD’s in optics have tried and failed to invent a compact near-eye volumetric display. </p> 
+
+					<p>It may be difficult, but I don’t think it’s impossible to build a compelling AR system. This page discusses some of the components and variables necessary to consider for AR. It is in no way exhaustive: for example it doesn’t even begin to cover input methods. However, if you are interested in building an AR system, I hope this page gives you an idea of what factors need to be considered. </p>
+
+				<h2 style="text-align: center">Depth Sensors</h2>
+					<br>
+					<br>
+				<h3> Infared Structured Light </h3>
+				<h3> Time of Flight </h3>
+				<h3> Lidar </h3>
+				<h3> Triangulated </h3>
+				<h3> Depth from Defocus </h3>
+				<h3> Coded Aperture </h3> 
+				<h2 style="text-align: center">SLAM/Features</h2>
+				<h2 style="text-align: center">Displays</h2>
+				<h3> Depth </h3>
+					<h3 style="text-align: center"> Light Field Displays 
+				<h3> Field of view </h3>
+				<h3> Resolution </h3>
+				<h3> The semi-transparent flying elephant in the room <h3>
+				-depth
+					briefly mention steiroscopic 
+					-vergence accommodation conflict 
+					-volumetric/light field displays 
+						types
+				-field of view
+				-resolution
+				-Invornomental Occlusion (The Black Problem)
+				<h2 style="text-align: center">Chips</h2>
+				<h2 style="text-align: center">Graphics</h2>
+
+
+				<h1 style="text-align: right; cursor: pointer" onclick=" jsGoToPage('why'); scroll(0,0)">Chapter 5:</h1>
+				<h2 style="text-align: right; cursor: pointer" onclick=" jsGoToPage('why'); scroll(0,0)">Marketplace </h2> 
+
+			</div>
+
+		</div>
+
+
+</body>
+
+</html>

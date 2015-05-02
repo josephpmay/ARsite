@@ -1,0 +1,155 @@
+<html>
+
+<head>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,200italic,300italic' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8">
+	<title>Augmented Reality</title>
+	<link rel="stylesheet" media="screen" href="ar2.css">
+
+	<script language=javascript>
+	//check url, redirect if not main page, or if on main page, redirect to intro js content (but update that first to reflect changes to this page)
+
+	//code for dynamically loading external javascript
+	var filesadded=""
+	
+
+	function jsGoToPage(filename)
+	{
+		//checks if file as already been loaded
+		if(filesadded.indexOf("["+filename+"]")==-1)
+		{
+			//creates javascript line to add to head
+			
+			function fuckasync(callback) {
+
+				var scriptadded = document.createElement('script')
+				scriptadded.setAttribute("type", "text/javascript")
+				scriptadded.setAttribute("src", filename + ".js")
+				
+				scriptadded.onload = callback
+				scriptadded.onreadystatechange = callback
+				//adds line to head
+				document.getElementsByTagName("head")[0].appendChild(scriptadded)
+			}
+			//adds file name to list of loaded files
+			filesadded+="["+filename+"]"
+
+			var replacePage2 = function() {
+				switch(filename)
+			{
+				case "why":
+					why.replacePage()
+					break;
+				case "introduction":
+					introduction.replacePage()
+					break;
+				case "ux":
+					ux.replacePage()
+					break;
+				case "marketplace":
+					marketplace.replacePage()
+					break;
+				case "make":
+					make.replacePage()
+					break;
+				case "examples":
+					examples.replacePage()
+					break;
+
+			}
+			}
+
+			fuckasync(replacePage2)
+		}
+		else
+		{
+			switch(filename)
+			{
+				case "why":
+					why.replacePage()
+					break;
+				case "introduction":
+					introduction.replacePage()
+					break;
+				case "ux":
+					ux.replacePage()
+					break;
+				case "marketplace":
+					marketplace.replacePage()
+					break;
+				case "make":
+					make.replacePage()
+					break;
+				case "examples":
+					examples.replacePage()
+					break;
+			}
+		}
+	}
+
+	</script>
+
+
+
+</head>
+
+<body>
+
+				<div id="delta" onclick="document.getElementById('nav').style.display='initial' "> 
+					<img src="delta.svg" alt="menue button">
+				 </div>
+
+
+
+	<div id="nav" > 
+		<!--IMAGE -->
+		<!--MENUE -->
+		<!--Accessability-->
+		<!--X in top left cornor-->
+		<div id="x" onclick="document.getElementById('nav').style.display='none' "> 
+			<img src="exit.svg" alt="menue exit button">
+		 </div>
+
+		<div class="menueitem"  onclick=" jsGoToPage('introduction'); document.getElementById('nav').style.display='none'; scroll(0,0)">Introduction </div>
+		<div class="menueitem"  onclick=" jsGoToPage('why'); document.getElementById('nav').style.display='none'; scroll(0,0)"> Why?</div>
+		<div class="menueitem"  onclick=" jsGoToPage('ux'); document.getElementById('nav').style.display='none'; scroll(0,0)"> UX Guide</div>
+		<div class="menueitem"onclick=" jsGoToPage('examples'); document.getElementById('nav').style.display='none'; scroll(0,0)"> Examples</div>
+		<div class="menueitem"onclick=" jsGoToPage('make'); document.getElementById('nav').style.display='none'; scroll(0,0)"> Make</div>
+		<div class="menueitem"onclick=" jsGoToPage('marketplace'); document.getElementById('nav').style.display='none'; scroll(0,0)"> Marketplace</div>
+
+
+	</div>
+	
+
+		<div id="page">
+
+			<span id="title">Augmented Reality</span>
+
+			<div id="mainContent">
+				<h1>Welcome</h1>
+
+				<p>Occasionally, a colleague or friend of mine will see a glint in my eyes and ask me what’s making me so excited. In the past few months, my answer to that question usually includes an incomprehensible blather about light fields, diffraction, and coded-aperture depth capture. Usually I’ll get back, “That sounds interesting,” which is a clear indication that they have absolutely no interest in what I’m talking about whatsoever. Once in awhile, however, a friend will actually be interested and press me further to explain what I’m talking about. So I ask them a question.</p>
+
+				<h3 style= "font-style: italic; text-align: center">"Do you know what augmented reality is?"</h3>
+
+				<p>I am surprised how often the answer is “no”. With the quality of what is currently called “augmented reality,” however, I am inclined to think that this is a good thing. </p>
+			<p>Chances are, you probably think that Google Glass is augmented reality, or you think of augmented reality as one of those iPhone apps you hold up to a Volkswagen ad to see a 3D model of a car. These are technically augmented reality, just like wheelbarrows and unicycles are technically vehicles. When I talk about augmented reality, I’m talking about something that’s completely different.</p>
+
+			<p>In the most fundamental sense, augmented reality is superimposing computer-generated imagery onto a person’s view of the world. My vision of augmented reality, however, is immersive augmented reality. In immersive augmented reality, the computer generated imagery is fully integrated into (and ideal indistinguishable from) the real world. In immersive augmented reality, virtual objects can be viewed and manipulated just like real objects. In addition, virtual qualities can be added to real-world objects, such as virtually changing the picture in a frame.</p>
+
+			<p>I’ve created this guide to hopefully create a better understanding of augmented reality in both the tech community and the general public. I’ve also included many of the lessons I’ve learned studying augmented reality over the years so that hopefully makers can apply them when building the future of AR. I also hope to clear up many of the misconceptions surrounding augmented reality. </p>
+
+			<p>This guide contains five chapters. I recommend that you read them in order, but if you would like to skip a section, you can access the table of contents in the (icon, possibly eye glasses) menu. I also should note (want to inform you) that some sections hijack your browser scrolling for a more interactive experience. If this bothers you or creates unintended effects in your browser, it can be turned off in the (icon) menu. Finally, a text-and-image-only accessibility version is available at text.url.com. Now, put on your glasses, turn on, tune in, and…</p>
+
+				<h1 style="text-align: right; cursor: pointer" onclick=" jsGoToPage('why'); scroll(0,0)">Chapter 1:</h1>
+				<h2 style="text-align: right; cursor: pointer" onclick=" jsGoToPage('why'); scroll(0,0)">Why would I ever want <br> Augmented Reality?</h2>
+
+			</div>
+
+		</div>
+
+
+</body>
+
+</html>

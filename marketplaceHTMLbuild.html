@@ -1,0 +1,124 @@
+<html>
+
+<head>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,200italic,300italic' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8">
+	<title>Augmented Reality</title>
+	<link rel="stylesheet" media="screen" href="ar2.css">
+
+	<script language=javascript>
+	//check url, redirect if not main page, or if on main page, redirect to intro js content (but update that first to reflect changes to this page)
+
+	//code for dynamically loading external javascript
+	var filesadded=""
+	
+
+	function jsGoToPage(filename)
+	{
+		//checks if file as already been loaded
+		if(filesadded.indexOf("["+filename+"]")==-1)
+		{
+			//creates javascript line to add to head
+			
+			function fuckasync(callback) {
+
+				var scriptadded = document.createElement('script')
+				scriptadded.setAttribute("type", "text/javascript")
+				scriptadded.setAttribute("src", filename + ".js")
+				
+				scriptadded.onload = callback
+				scriptadded.onreadystatechange = callback
+				//adds line to head
+				document.getElementsByTagName("head")[0].appendChild(scriptadded)
+			}
+			//adds file name to list of loaded files
+			filesadded+="["+filename+"]"
+
+			var replacePage2 = function() {
+				switch(filename)
+			{
+				case "why":
+					why.replacePage()
+					break;
+				case "introduction":
+					introduction.replacePage()
+					break;
+			}
+			}
+
+			fuckasync(replacePage2)
+		}
+		else
+		{
+			switch(filename)
+			{
+				case "why":
+					why.replacePage()
+					break;
+				case "introduction":
+					introduction.replacePage()
+					break;
+			}
+		}
+	}
+
+	</script>
+
+
+
+</head>
+
+<body>
+
+				<div id="delta" onclick="document.getElementById('nav').style.display='initial' "> 
+					<img src="delta.svg" alt="menue button">
+				 </div>
+
+
+
+	<div id="nav" > 
+		<!--IMAGE -->
+		<!--MENUE -->
+		<!--Accessability-->
+		<!--X in top left cornor-->
+		<div id="x" onclick="document.getElementById('nav').style.display='none' "> 
+			<img src="exit.svg" alt="menue exit button">
+		 </div>
+
+		<div class="menueitem"  onclick=" jsGoToPage('introduction'); document.getElementById('nav').style.display='none'; scroll(0,0)">Introduction </div>
+		<div class="menueitem"  onclick=" jsGoToPage('why'); document.getElementById('nav').style.display='none'; scroll(0,0)"> Why?</div>
+		<div class="menueitem"> UX Guide</div>
+		<div class="menueitem"> Examples</div>
+		<div class="menueitem"> Make</div>
+		<div class="menueitem"> Marketplace</div>
+
+
+	</div>
+	
+
+		<div id="page">
+
+			
+			<div id="mainContent" style="margin-top: 10vh">
+				
+				<h1 style="line-height: normal">Consumer AR</h1>
+				<h2>AR You Can Buy</h2>
+				<p>There are three augmented reality systems in development that should be available to consumers sometime in 2016. Many tech companies such as Apple and Sony have recently hired or created teams to work on AR, but it is likely that these products will be further out. In addition, countless tiny startups are working on Google Glass-style devices or enterprise systems, but I have decided that none of them appear promising enough to be included here. </p>
+
+				<h1> <a style="text-decoration: none;"href="http://www.microsoft.com/microsoft-hololens/en-us"> Microsoft </a></h1>
+				<h1> <a style="text-decoration: none;" href="http://www.magicleap.com/#/home">Magic Leap </a> </h1>
+				<h1> <a style="text-decoration: none;" href="https://www.getameta.com/"> Meta </a></h1>
+
+				<!--<h1 style="text-align: right; cursor: pointer" onclick=" jsGoToPage('why'); scroll(0,0)">Chapter 1:</h1>
+				<h2 style="text-align: right; cursor: pointer" onclick=" jsGoToPage('why'); scroll(0,0)">Why would I ever want <br> Augmented Reality?<
+					/h2> -->
+
+			</div>
+
+		</div>
+
+
+</body>
+
+</html>
