@@ -25,7 +25,8 @@
 
 				var scriptadded = document.createElement('script')
 				scriptadded.setAttribute("type", "text/javascript")
-				scriptadded.setAttribute("src", filename + ".js")
+				//Date.now() is added to the end of the filename so that if the main page is reloaded, the other pages will update if in cache
+				scriptadded.setAttribute("src", filename + ".js?" + Date.now())
 				
 				scriptadded.onload = callback
 				scriptadded.onreadystatechange = callback
@@ -87,6 +88,14 @@
 			}
 		}
 	}
+
+	window.onload=function(){
+		if(location.hash != "")
+		{
+			jsGoToPage(location.hash.substring(1))
+		}
+
+	};
 
 	</script>
 
