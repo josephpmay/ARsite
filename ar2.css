@@ -132,6 +132,8 @@ h1
 	padding-bottom: 50px;
 	z-index: 0;
 	border: 3px solid rgba(10,10,10,0.1);
+	position: relative;
+	overflow: hidden;
 }
 
 .slide h1

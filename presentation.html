@@ -8,12 +8,54 @@
 <!--innitial CSS for each element, set up scenes -->
 <style>
 
+	.glasses
+	{
+		position: absolute;
+		width: 50%;
+		margin-left: 25%;
+		margin-top: 5%;
+	}
+
+	#glassesB
+	{
+		transform: rotateY(90deg);
+		-webkit-transform: rotateY(90deg);
+		-moz-transform: rotate(9de0g);
+    	-o-transform: rotate(90deg);
+    	-ms-transform: rotate(90deg);
+	}
+
+	#slide1Text
+	{
+		position: absolute;
+		width: 25%;
+		text-align: center;
+		height: 50%;
+		margin-top: 10%;
+			transform: translateX(150%);
+		-webkit-transform: translateX(150%);
+		-moz-transform: translateX(150%);
+    	-o-transform: translateX(150%);
+    	-ms-transform: translateX(150%);
+
+		/*	transform: translateY(50%);
+		-webkit-transform: translateY(50%);
+		-moz-transform: translateY(50%);
+    	-o-transform: translateY(50%);
+    	-ms-transform: translateY(50%);*/
+    	font-size: 2vh;
+
+    	visibility: hidden;
+
+	}
+
 </style>
 
 <!--inport Velocity
 import Ramjet -->
 <script src='ramjet.js'></script>
 <script src='velocity.min.js'></script>
+<script src='velocity.ui.js'></script>
 
 <script>
 
@@ -22,16 +64,40 @@ var currentSlide = 0
 function Slide() {
 
 	this.runSlide = function() {
-
+		//do not mess with this function
 	},
 
 	this.transitionOut = function() {
+		//do not mess with this function
 
 	}
 };
 
 var slide1 = new Slide()
 	slide1.runSlide= function(){
+		Velocity(document.getElementById("glassesF"), { rotateY: "90deg" }, { duration: 1000,
+		complete: function(){
+			Velocity(document.getElementById("glassesB"), { rotateY: ["0deg", "90deg"] }, { duration: 1000 });
+			Velocity(document.getElementById("glassesB"), { scaleX: 2, scaleY: 2, translateX: "25%" }, { duration: 1000,
+			complete: function(){
+				Velocity(document.getElementById("slide1Text"), { opacity: 1, translateX: ["150%", "150%"] }, { duration: 500, visibility: "visible" });
+				Velocity(document.getElementById("slide1Text"), { scaleX: 2, scaleY: 2, translateX: ["150%", "150%"], translateY: ["25%", "0%"] }, { delay: 1000, duration: 1000, 
+					begin: function() {
+						Velocity(document.getElementById("glassesB"), { scaleX: 3, scaleY: 3, opacity: 0 }, {  duration: 1000});
+						//Velocity(document.getElementById("glassesB"), "fadeOut", {  duration: 1000});
+						Velocity(document.getElementById("slide1Text"), "fadeOut", { delay: 2000, duration: 1500, 
+							complete: function(){
+								document.getElementById("slide1Text").innerHTML = "test";
+								Velocity(document.getElementById("slide1Text"), "fadeIn", { delay: 500, duration: 1500 });
+									//have glasses fly out somewhere in displaying the text 
+							} });
+					}});
+
+
+
+			} });
+		} });
+		
 
 	};
 	slide1.transitionOut = function(){
@@ -123,130 +189,35 @@ var slide13 = new Slide()
 	};
 
 
-/*
-var slide2= {
-	function runSlide(){
-		
-	}
-	function transitionOut(){
-		
-	}
-}
-var slide3= {
-	function runSlide(){
-		
-	}
-	function transitionOut(){
-		
-	}
-}
-var slide4= {
-	function runSlide(){
-		
-	}
-
-	function transitionOut(){
-		
-	}
-}
-var slide5= {
-	function runSlide(){
-		
-	}
-
-	function transitionOut(){
-		
-	}
-}
-var slide6= {
-	function runSlide(){
-		
-	}
-
-	function transitionOut(){
-		
-	}
-}
-var slide7= {
-	function runSlide(){
-		
-	}
-
-	function transitionOut(){
-		
-	}
-}
-var slide8= {
-	function runSlide(){
-		
-	}
-
-	function transitionOut(){
-		
-	}
-}
-var slide9= {
-	function runSlide(){
-		
-	}
-
-	function transitionOut(){
-		
-	}
-}
-var slide10= {
-	function runSlide(){
-		
-	}
-
-	function transitionOut(){
-		
-	}
-}
-var slide11= {
-	function runSlide(){
-		
-	}
-
-	function transitionOut(){
-		
-	}
-}
-var slide12= {
-	function runSlide(){
-		
-	}
-
-	function transitionOut(){
-		
-	}
-}
-var slide13= {
-	function runSlide(){
-		
-	}
-
-	function transitionOut(){
-		
-	}
-}
-*/
-
 var scriptHolder = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13]
 
 function nextSlide() {
-
-	scriptHolder[currentSlide].transitionOut();
-	currentSlide ++;
-	scriptHolder[currentSlide].runSlide();
+if (currentSlide<12)
+	{
+		scriptHolder[currentSlide].transitionOut();
+		currentSlide ++;
+		scriptHolder[currentSlide].runSlide();
+	}
+else
+	{
+		currentSlide = 12
+	}
 
 }
 
 function prevSlide() {
 
-	scriptHolder[currentSlide].transitionOut();
-	currentSlide --;
-	scriptHolder[currentSlide].runSlide();
+if (currentSlide >0)
+	{
+		scriptHolder[currentSlide].transitionOut();
+		currentSlide --;
+		scriptHolder[currentSlide].runSlide();
+	}
+else
+	{
+		currentSlide = 0
+	}
+
 
 }
 //change color of next and prev button when should move, but still allow clicks at any time
@@ -269,6 +240,11 @@ function prevSlide() {
 				
 				<div class="slide" id="slide1" style="position: relative"> 
 					<h1 style="padding-top: 30px">Designing the AR User Experience</h1>
+						<img class="glasses" id="glassesF" src="glassesfront.svg" alt="image of glasses">
+						<img class="glasses" id="glassesB" style=""src="glassesback.svg" alt="image of back of glasses">
+						<div class="slide1Text" id="slide1Text" style=""> Designing for augmented reality is both exciting and terrifying </div>
+
+						<h1 onclick="slide1.runSlide()">Begin</h1>
 					<div class="nextbutton" onclick="nextSlide()"> Next</div>
 					<div class="prevbutton" style="color:grey" onclick="prevSlide()"> Previous</div>
 				</div>
