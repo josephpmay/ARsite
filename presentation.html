@@ -16,6 +16,11 @@
 		margin-top: 5%;
 	}
 
+	.slide1content
+	{
+
+	}
+
 	#glassesB
 	{
 		transform: rotateY(90deg);
@@ -68,7 +73,7 @@ function Slide() {
 	},
 
 	this.transitionOut = function() {
-		//do not mess with this function
+		Velocity(document.getElementsByClassName("slide" + (currentSlide + 1) + "content"), {translateX: ["50%"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
 
 	}
 };
@@ -85,36 +90,56 @@ var slide1 = new Slide()
 					begin: function() {
 						Velocity(document.getElementById("glassesB"), { scaleX: 3, scaleY: 3, opacity: 0 }, {  duration: 1000});
 						//Velocity(document.getElementById("glassesB"), "fadeOut", {  duration: 1000});
-						Velocity(document.getElementById("slide1Text"), "fadeOut", { delay: 2000, duration: 1500, 
+						Velocity(document.getElementById("slide1Text"), "fadeOut", { delay: 1000, duration: 1000, 
 							complete: function(){
-								document.getElementById("slide1Text").innerHTML = "test";
-								Velocity(document.getElementById("slide1Text"), "fadeIn", { delay: 500, duration: 1500 });
+								document.getElementById("slide1Text").innerHTML = "True 3D user interfaces have never really been created before, and what works on a flat display often doesn't translate well to free space ";
+								Velocity(document.getElementById("slide1Text"), {translateY: ["10%"]} );
+								Velocity(document.getElementById("slide1Text"), "fadeIn", { delay: 0, duration: 1000 });
 									//have glasses fly out somewhere in displaying the text 
+								Velocity(document.getElementById("nextbutton"), {backgroundColor: "#33CC66"}, {duration: 1000});
 							} });
 					}});
 
 
 
 			} });
+		Velocity(document.getElementById("slide1Header"),{opacity: 0}, { duration: 1000, visibility: "hidden" });
+		Velocity(document.getElementById("beginb"),{opacity: 0}, { duration: 1000, visibility: "hidden" });
 		} });
 		
 
 	};
-	slide1.transitionOut = function(){
 
-	};
+	/*slide1.transitionOut = function(){
+		
+
+		Velocity(document.getElementsByClassName("slide1content"), {translateX: ["50%"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
+
+
+		// alert("test3");
+		// console.log("testx")
+		// //for some reason not getting called!!! ???
+		// Velocity(document.getElementById("nextbutton"), { backgroundColor: "#33cc66"}, {
+		// 	begin: function() {console.log("test")}
+		// });
+
+	};*/
 var slide2 = new Slide()
 	slide2.runSlide= function(){
 
 	};
-	slide2.transitionOut = function(){
+/*	slide2.transitionOut = function(){
 
-	};
+		Velocity(document.getElementsByClassName("slide2content"), {translateX: ["50%"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
+
+	};*/
 var slide3 = new Slide()
 	slide3.runSlide= function(){
 
 	};
 	slide3.transitionOut = function(){
+
+		Velocity(document.getElementsByClassName("slide3content"), {translateX: ["50%"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
 
 	};
 var slide4 = new Slide()
@@ -123,12 +148,16 @@ var slide4 = new Slide()
 	};
 	slide4.transitionOut = function(){
 
+		Velocity(document.getElementsByClassName("slide4content"), {translateX: ["50%"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
+
 	};
 var slide5 = new Slide()
 	slide5.runSlide= function(){
 
 	};
 	slide5.transitionOut = function(){
+
+		Velocity(document.getElementsByClassName("slide5content"), {translateX: ["50%"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
 
 	};
 var slide6 = new Slide()
@@ -192,8 +221,10 @@ var slide13 = new Slide()
 var scriptHolder = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13]
 
 function nextSlide() {
+	alert("Test");
 if (currentSlide<12)
 	{
+		alert("another test");
 		scriptHolder[currentSlide].transitionOut();
 		currentSlide ++;
 		scriptHolder[currentSlide].runSlide();
@@ -239,12 +270,34 @@ else
 			<div id="mainContent" style="margin-top: 0vh">
 				
 				<div class="slide" id="slide1" style="position: relative"> 
-					<h1 style="padding-top: 30px">Designing the AR User Experience</h1>
-						<img class="glasses" id="glassesF" src="glassesfront.svg" alt="image of glasses">
-						<img class="glasses" id="glassesB" style=""src="glassesback.svg" alt="image of back of glasses">
-						<div class="slide1Text" id="slide1Text" style=""> Designing for augmented reality is both exciting and terrifying </div>
+				<!-- Slide 1 -->
+					<h1 id="slide1Header" class="slide1content" style="padding-top: 30px">Designing the AR User Experience</h1>
+						<img class="glasses slide1content" id="glassesF" src="glassesfront.svg" alt="image of glasses">
+						<img class="glasses slide1content" id="glassesB" style=""src="glassesback.svg" alt="image of back of glasses">
+						<div class="slide1Text slide1content" id="slide1Text" style=""> Designing for augmented reality is both exciting and terrifying </div>
 
-						<h1 onclick="slide1.runSlide()">Begin</h1>
+						<h1 id="beginb" class="slide1content" onclick="slide1.runSlide()">Begin</h1>
+				<!-- End Slide 1 -->
+
+				<!-- Slide 2 -->
+
+				<!-- End Slide 2 -->
+
+				<!-- Slide 3 -->
+
+				<!-- End Slide 3 -->
+
+				<!-- Slide 4 -->
+
+				<!-- End Slide 4 -->
+
+				<!-- Slide 5 -->
+
+				<!-- End Slide 5 -->
+
+				<!-- Slide 6 -->
+
+				<!-- End Slide 6 -->
 					<div class="nextbutton" onclick="nextSlide()"> Next</div>
 					<div class="prevbutton" style="color:grey" onclick="prevSlide()"> Previous</div>
 				</div>
