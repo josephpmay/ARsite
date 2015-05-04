@@ -1,17 +1,310 @@
 <html>
 <head>
-//innitial CSS for each element, set up scenes
 
-//inport Velocity
-//import Ramjet
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,200italic,300italic' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8">
+	<title>Augmented Reality</title>
+	<link rel="stylesheet" media="screen" href="ar2.css">
+<!--innitial CSS for each element, set up scenes -->
+<style>
+
+</style>
+
+<!--inport Velocity
+import Ramjet -->
+<script src='ramjet.js'></script>
+<script src='velocity.min.js'></script>
+
+<script>
+
+var currentSlide = 0
+
+function Slide() {
+
+	this.runSlide = function() {
+
+	},
+
+	this.transitionOut = function() {
+
+	}
+};
+
+var slide1 = new Slide()
+	slide1.runSlide= function(){
+
+	};
+	slide1.transitionOut = function(){
+
+	};
+var slide2 = new Slide()
+	slide2.runSlide= function(){
+
+	};
+	slide2.transitionOut = function(){
+
+	};
+var slide3 = new Slide()
+	slide3.runSlide= function(){
+
+	};
+	slide3.transitionOut = function(){
+
+	};
+var slide4 = new Slide()
+	slide4.runSlide= function(){
+
+	};
+	slide4.transitionOut = function(){
+
+	};
+var slide5 = new Slide()
+	slide5.runSlide= function(){
+
+	};
+	slide5.transitionOut = function(){
+
+	};
+var slide6 = new Slide()
+	slide6.runSlide= function(){
+
+	};
+	slide6.transitionOut = function(){
+
+	};
+var slide7 = new Slide()
+	slide7.runSlide= function(){
+
+	};
+	slide7.transitionOut = function(){
+
+	};
+var slide8 = new Slide()
+	slide8.runSlide= function(){
+
+	};
+	slide8.transitionOut = function(){
+
+	};
+var slide9 = new Slide()
+	slide9.runSlide= function(){
+
+	};
+	slide9.transitionOut = function(){
+
+	};
+var slide10 = new Slide()
+	slide10.runSlide= function(){
+
+	};
+	slide10.transitionOut = function(){
+
+	};
+var slide11 = new Slide()
+	slide11.runSlide= function(){
+
+	};
+	slide11.transitionOut = function(){
+
+	};
+var slide12 = new Slide()
+	slide12.runSlide= function(){
+
+	};
+	slide12.transitionOut = function(){
+
+	};
+var slide13 = new Slide()
+	slide13.runSlide= function(){
+
+	};
+	slide13.transitionOut = function(){
+
+	};
+
+
+/*
+var slide2= {
+	function runSlide(){
+		
+	}
+	function transitionOut(){
+		
+	}
+}
+var slide3= {
+	function runSlide(){
+		
+	}
+	function transitionOut(){
+		
+	}
+}
+var slide4= {
+	function runSlide(){
+		
+	}
+
+	function transitionOut(){
+		
+	}
+}
+var slide5= {
+	function runSlide(){
+		
+	}
+
+	function transitionOut(){
+		
+	}
+}
+var slide6= {
+	function runSlide(){
+		
+	}
+
+	function transitionOut(){
+		
+	}
+}
+var slide7= {
+	function runSlide(){
+		
+	}
+
+	function transitionOut(){
+		
+	}
+}
+var slide8= {
+	function runSlide(){
+		
+	}
+
+	function transitionOut(){
+		
+	}
+}
+var slide9= {
+	function runSlide(){
+		
+	}
+
+	function transitionOut(){
+		
+	}
+}
+var slide10= {
+	function runSlide(){
+		
+	}
+
+	function transitionOut(){
+		
+	}
+}
+var slide11= {
+	function runSlide(){
+		
+	}
+
+	function transitionOut(){
+		
+	}
+}
+var slide12= {
+	function runSlide(){
+		
+	}
+
+	function transitionOut(){
+		
+	}
+}
+var slide13= {
+	function runSlide(){
+		
+	}
+
+	function transitionOut(){
+		
+	}
+}
+*/
+
+var scriptHolder = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13]
+
+function nextSlide() {
+
+	scriptHolder[currentSlide].transitionOut();
+	currentSlide ++;
+	scriptHolder[currentSlide].runSlide();
+
+}
+
+function prevSlide() {
+
+	scriptHolder[currentSlide].transitionOut();
+	currentSlide --;
+	scriptHolder[currentSlide].runSlide();
+
+}
+//change color of next and prev button when should move, but still allow clicks at any time
 
 //annimation code
+//Array of calling code for each slide
+//integer index
+//onClick for next -> increase index, call code from the array at that index
+//onClick for previous -> Decrease index, call code from the array at that index
+//code for each slide should begin with the removal of the code on the previous slide... but what about going backwards?
+
+</script>
 
 </head>
 
 
 <body>
-//everything set to not visible (except for initial elements)
+			<div style=" width: 50px; min-height: 75px; height: 10vh"> </div>
+			<div id="mainContent" style="margin-top: 0vh">
+				
+				<div class="slide" id="slide1" style="position: relative"> 
+					<h1 style="padding-top: 30px">Designing the AR User Experience</h1>
+					<div class="nextbutton" onclick="nextSlide()"> Next</div>
+					<div class="prevbutton" style="color:grey" onclick="prevSlide()"> Previous</div>
+				</div>
 
+				<h1 style="text-align: right; cursor: pointer" onclick=" jsGoToPage('why'); scroll(0,0)">Chapter 3:</h1>
+				<h2 style="text-align: right; cursor: pointer" onclick=" jsGoToPage('why'); scroll(0,0)">UX Design<br> Examples</h2> 
+
+			</div>
+
+<!--//everything set display: none
+
+//slide 1 elements
+
+//slide 2 elements
+
+//slide 3 elements
+
+//slide 4 elements
+
+//slide 5 elements
+
+//slide 6 elements
+
+//slide 7 elements
+
+//slide 8 elements
+
+//slide 9 elements
+
+//slide 10 elements
+
+//slide 11 elements
+
+//slide 12 elements
+
+//slide 13 elements
+-->
 </body>
 </html>
