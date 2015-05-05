@@ -241,6 +241,16 @@ import Ramjet -->
 <script>
 
 var currentSlide = 0
+//remove from final version! -->
+var audioMode = false
+
+function startScript() {
+	if (audioMode)
+		//Play AudioMode
+	else
+		slide1.runSlide()
+}
+
 
 function Slide() {
 
@@ -446,7 +456,7 @@ else
 						<img class="glasses slide1content" id="glassesB" style=""src="glassesback.svg" alt="image of back of glasses">
 						<div class="slide1Text slide1content" id="slide1Text" style=""> Designing for augmented reality is both exciting and terrifying </div>
 
-						<h1 id="beginb" class="slide1content" onclick="slide1.runSlide()">Begin</h1>
+						<h1 id="beginb" class="slide1content" onclick="startScript()">Begin</h1>
 				<!-- End Slide 1 -->
 
 				<!-- Slide 2 -->
@@ -489,19 +499,20 @@ else
 					<h3 class="caption slide4content" id="cap2">A Globe </h3>
 					<img class="objectEx slide4content" id="cat" src="cat.svg" alt="image of cat">
 					<h3 class="caption slide4content" id="cap3">A Cat </h3>
-					
-
-				
 
 				<!-- End Slide 4 -->
 
 				<!-- Slide 5 -->
-
+				A User interacts with virtual objects just like she would real world objects. Let's take a globe. A user could walk up to the globe and spin it around. She also could do things with this virtual globe that aren't possible with a real globe. She could zoom into a country, pin her favorite locations, or visualize live seismic activity 
 				<!-- End Slide 5 -->
 
 				<!-- Slide 6 -->
-
+				This brings us to our first rule: All objects should be anchored. Anchoring an object means that it stays attached to a place in the real world. Although it may often be tempting to float objects in front of your face, doing so breaks the illusion that objects are objects. If you need to look more closely at an object, either walk to the object or move its anchor location to a surface nearby. 
 				<!-- End Slide 6 -->
+
+				<!--Slide 7 -->
+
+				<!-- End Slide 7 -->
 					<div class="nextbutton" id="nextbutton" onclick="nextSlide()"> Next</div>
 					<div class="prevbutton" style="color:grey" onclick="prevSlide()"> Previous</div>
 				</div>

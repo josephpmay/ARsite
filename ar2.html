@@ -228,9 +228,21 @@
 	function settings(single, audio)
 	{
 		if(single)
-			setCookie("singlePage", "true", 1000)
+		{
+			if(getCookie("singlePage") !=true)
+			{
+				setCookie("singlePage", "true", 1000)
+				jsSinglePage()
+			}
+		}
 		else
-			setCookie("singlePage", "false", 1000)
+		{
+			if(getCookie("singlePage") == true)
+			{
+				introduction.replacePage()
+				setCookie("singlePage", "false", 1000)
+			}
+		}
 
 
 		if(audio)
