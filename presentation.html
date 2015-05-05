@@ -168,6 +168,66 @@
 	
 	}
 
+	.objectEx
+	{
+		position: absolute;
+		width: 25%;
+		top: 65%;
+		visibility: hidden;
+	}
+
+	#globe
+	{
+		left: 37.5%;
+	}
+	#screen
+	{
+		left: 7.5%;
+	}
+	#cat
+	{
+		left: 67.5%;
+	}
+
+	#slide4InfoText
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top: 40%;
+		visibility: hidden;
+		font-weight: lighter;
+		font-size: 40px;
+	}
+
+	.caption
+	{
+		position: absolute;
+		width: 25%;
+		text-align: center;
+		top: 75%;
+		visibility: hidden;
+		font-weight: lighter;
+		font-size: 20px;
+		background-color: black;
+		color: white;
+	}
+
+	#cap1
+	{
+		left: 7.5%;
+	}
+
+	#cap2
+	{
+		left: 37.5%;
+	}
+
+	#cap3
+	{
+		left: 67.5%;
+	}
+
 
 
 </style>
@@ -259,7 +319,14 @@ var slide4 = new Slide()
 		Velocity(document.getElementById("slide4SubHeader"), {opacity: 1}, {delay: 1500, duration: 1000, visibility: "visible"});
 		Velocity(document.getElementById("slide4Header"), {translateY: "-50%"}, {delay: 1500, duration: 1000, visibility: "visible"});
 		Velocity(document.getElementById("slide4SubHeader"), {translateY: "-150%"}, {delay: 0, duration: 1000, visibility: "visible"});
-
+		Velocity(document.getElementById("slide4InfoText"), "fadeIn", {delay: 3000, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("screen"), {opacity:1}, {delay: 4000, duration: 200, visibility: "visible"});
+		Velocity(document.getElementById("cap1"), {opacity:1}, {delay: 4000, duration: 200, visibility: "visible"});
+		Velocity(document.getElementById("globe"), {opacity:1}, {delay: 5000, duration: 200, visibility: "visible"});
+		Velocity(document.getElementById("cap2"), {opacity:1}, {delay: 5000, duration: 200, visibility: "visible"});
+		Velocity(document.getElementById("cat"), {opacity:1}, {delay: 6000, duration: 200, visibility: "visible"});
+		Velocity(document.getElementById("cap3"), {opacity:1}, {delay: 6000, duration: 200, visibility: "visible"});
+		Velocity(document.getElementById("nextbutton"), {backgroundColor: "#33CC66", backgroundColorAlpha: 1}, {delay: 5500, duration: 1000});
 
 
 	};
@@ -409,10 +476,22 @@ else
 					<div class="slide3content" id="ruleTip"> Keep these rules in mind, we'll come back to them in a bit</div>
 
 				<!-- End Slide 3 -->
-					<h1 id="slide4Header" class="slide3content">So what does an Augmented Reality UI consist of?</h1>
-					<h2 id="slide4SubHeader" class="slide3content">Let's talk about the most obvious element: Objects</h2>
 
 				<!-- Slide 4 -->
+					<h1 id="slide4Header" class="slide4content">So what does an Augmented Reality UI consist of?</h1>
+					<h2 id="slide4SubHeader" class="slide4content">Let's talk about the most obvious element: Objects</h2>
+
+					<h2 id="slide4InfoText" class="slide4content"> Objects in an AR environment are analogous to objects in the real world. </h2>
+					
+					<img class="objectEx slide4content" id="screen" src="screen.svg" alt="image of computer monitor">
+					<h3 class="caption slide4content" id="cap1">A Display </h3>
+					<img class="objectEx slide4content" id="globe" src="globe.svg" alt="image of globe">
+					<h3 class="caption slide4content" id="cap2">A Globe </h3>
+					<img class="objectEx slide4content" id="cat" src="cat.svg" alt="image of cat">
+					<h3 class="caption slide4content" id="cap3">A Cat </h3>
+					
+
+				
 
 				<!-- End Slide 4 -->
 
