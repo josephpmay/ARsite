@@ -16,16 +16,12 @@
 		margin-top: 5%;
 	}
 
-	.slide1content
-	{
-
-	}
 
 	#glassesB
 	{
 		transform: rotateY(90deg);
 		-webkit-transform: rotateY(90deg);
-		-moz-transform: rotate(9de0g);
+		-moz-transform: rotate(9deg);
     	-o-transform: rotate(90deg);
     	-ms-transform: rotate(90deg);
 	}
@@ -36,7 +32,7 @@
 		width: 25%;
 		text-align: center;
 		height: 50%;
-		margin-top: 10%;
+		top: 40%;
 			transform: translateX(150%);
 		-webkit-transform: translateX(150%);
 		-moz-transform: translateX(150%);
@@ -53,6 +49,126 @@
     	visibility: hidden;
 
 	}
+
+	#slide2Text
+	{
+		position: absolute;
+		width: 50%;
+		text-align: center;
+		height: 50%;
+		top: 25%;
+			transform: translateX(50%);
+		-webkit-transform: translateX(50%);
+		-moz-transform: translateX(50%);
+    	-o-transform: translateX(50%);
+    	-ms-transform: translateX(50%);
+
+    	
+
+		/*	transform: translateY(50%);
+		-webkit-transform: translateY(50%);
+		-moz-transform: translateY(50%);
+    	-o-transform: translateY(50%);
+    	-ms-transform: translateY(50%);*/
+    	font-size: 3vh;
+
+    	visibility: hidden;
+
+	}
+
+		#slide3IntroText
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		/*height: 50%; */
+		top: 10%;
+		/*
+			transform: translateX(50%);
+		-webkit-transform: translateX(50%);
+		-moz-transform: translateX(50%);
+    	-o-transform: translateX(50%);
+    	-ms-transform: translateX(50%);
+
+    	*/
+
+		/*	transform: translateY(50%);
+		-webkit-transform: translateY(50%);
+		-moz-transform: translateY(50%);
+    	-o-transform: translateY(50%);
+    	-ms-transform: translateY(50%);*/
+    	font-size: 3vh;
+
+    	visibility: hidden;
+	}
+
+	#slide3Header
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top: 20%;
+		visibility: hidden;
+	}
+	
+	#rule1
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top: 40%;
+		visibility: hidden;
+	}
+
+	#rule2
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top: 45%;
+		visibility: hidden;
+	}
+
+	#rule3
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top: 50%;
+		visibility: hidden;
+	}
+
+		#ruleTip
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top: 70%;
+		visibility: hidden;
+	}
+
+		#slide4Header
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top: 10%;
+		visibility: hidden;
+	}
+
+		#slide4SubHeader
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top: 40%;
+		visibility: hidden;
+		font-weight: lighter;
+		font-size: 40px;
+	
+	}
+
+
 
 </style>
 
@@ -74,6 +190,8 @@ function Slide() {
 
 	this.transitionOut = function() {
 		Velocity(document.getElementsByClassName("slide" + (currentSlide + 1) + "content"), {translateX: ["50%"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
+		Velocity(document.getElementsByClassName("slide" + (currentSlide + 1) + "content"), {translateX: ["0"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
+		Velocity(document.getElementById("nextbutton"), {backgroundColor: "#0a0a0a", backgroundColorAlpha: 0.1}, {duration: 1000});
 
 	}
 };
@@ -96,12 +214,9 @@ var slide1 = new Slide()
 								Velocity(document.getElementById("slide1Text"), {translateY: ["10%"]} );
 								Velocity(document.getElementById("slide1Text"), "fadeIn", { delay: 0, duration: 1000 });
 									//have glasses fly out somewhere in displaying the text 
-								Velocity(document.getElementById("nextbutton"), {backgroundColor: "#33CC66"}, {duration: 1000});
+								Velocity(document.getElementById("nextbutton"), {backgroundColor: "#33CC66", backgroundColorAlpha: 1}, {duration: 1000});
 							} });
 					}});
-
-
-
 			} });
 		Velocity(document.getElementById("slide1Header"),{opacity: 0}, { duration: 1000, visibility: "hidden" });
 		Velocity(document.getElementById("beginb"),{opacity: 0}, { duration: 1000, visibility: "hidden" });
@@ -110,121 +225,97 @@ var slide1 = new Slide()
 
 	};
 
-	/*slide1.transitionOut = function(){
-		
 
-		Velocity(document.getElementsByClassName("slide1content"), {translateX: ["50%"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
-
-
-		// alert("test3");
-		// console.log("testx")
-		// //for some reason not getting called!!! ???
-		// Velocity(document.getElementById("nextbutton"), { backgroundColor: "#33cc66"}, {
-		// 	begin: function() {console.log("test")}
-		// });
-
-	};*/
 var slide2 = new Slide()
 	slide2.runSlide= function(){
+		Velocity(document.getElementById("slide2Header"), "fadeIn", {visibility: "visible"});
+		Velocity(document.getElementById("slide2Header"), "fadeOut", {delay: 1000, visibility: "hidden",
+			complete: function() {
+				Velocity(document.getElementById("span1"), "fadeIn", {visibility: "visible"});
+				Velocity(document.getElementById("span2"), "fadeIn", {visibility: "visible", delay: 1000});
+				Velocity(document.getElementById("span3"), "fadeIn", {visibility: "visible", delay: 2000});
+				Velocity(document.getElementById("nextbutton"), {backgroundColor: "#33CC66", backgroundColorAlpha: 1}, {delay: 3000, duration: 1000});
+			}});
 
 	};
-/*	slide2.transitionOut = function(){
 
-		Velocity(document.getElementsByClassName("slide2content"), {translateX: ["50%"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
-
-	};*/
 var slide3 = new Slide()
 	slide3.runSlide= function(){
+		Velocity(document.getElementById("slide3IntroText"), {opacity: 1}, {delay: 300, visibility: "visible"});
+		Velocity(document.getElementById("slide3Header"), {opacity: 1}, {delay: 1000, duration: 1000, visibility: "visible"});
+
+		Velocity(document.getElementById("rule1"), {opacity: 1}, {delay: 2500, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("rule2"), {opacity: 1}, {delay: 3500, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("rule3"), {opacity: 1}, {delay: 4500, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("ruleTip"), {opacity: 1}, {delay: 4600, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("nextbutton"), {backgroundColor: "#33CC66", backgroundColorAlpha: 1}, {delay: 4600, duration: 1000});
 
 	};
-	slide3.transitionOut = function(){
 
-		Velocity(document.getElementsByClassName("slide3content"), {translateX: ["50%"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
-
-	};
 var slide4 = new Slide()
 	slide4.runSlide= function(){
 
-	};
-	slide4.transitionOut = function(){
+		Velocity(document.getElementById("slide4Header"), {opacity: 1}, {duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("slide4SubHeader"), {opacity: 1}, {delay: 1500, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("slide4Header"), {translateY: "-50%"}, {delay: 1500, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("slide4SubHeader"), {translateY: "-150%"}, {delay: 0, duration: 1000, visibility: "visible"});
 
-		Velocity(document.getElementsByClassName("slide4content"), {translateX: ["50%"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
+
 
 	};
+
 var slide5 = new Slide()
 	slide5.runSlide= function(){
 
 	};
-	slide5.transitionOut = function(){
 
-		Velocity(document.getElementsByClassName("slide5content"), {translateX: ["50%"], opacity: 0}, { duration: 1000, visibility: "hidden" } );
-
-	};
 var slide6 = new Slide()
 	slide6.runSlide= function(){
 
 	};
-	slide6.transitionOut = function(){
 
-	};
 var slide7 = new Slide()
 	slide7.runSlide= function(){
 
 	};
-	slide7.transitionOut = function(){
 
-	};
 var slide8 = new Slide()
 	slide8.runSlide= function(){
 
 	};
-	slide8.transitionOut = function(){
 
-	};
 var slide9 = new Slide()
 	slide9.runSlide= function(){
 
 	};
-	slide9.transitionOut = function(){
 
-	};
 var slide10 = new Slide()
 	slide10.runSlide= function(){
 
 	};
-	slide10.transitionOut = function(){
 
-	};
 var slide11 = new Slide()
 	slide11.runSlide= function(){
 
 	};
-	slide11.transitionOut = function(){
 
-	};
 var slide12 = new Slide()
 	slide12.runSlide= function(){
 
 	};
-	slide12.transitionOut = function(){
 
-	};
 var slide13 = new Slide()
 	slide13.runSlide= function(){
 
 	};
-	slide13.transitionOut = function(){
 
-	};
 
 
 var scriptHolder = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13]
 
 function nextSlide() {
-	alert("Test");
 if (currentSlide<12)
 	{
-		alert("another test");
 		scriptHolder[currentSlide].transitionOut();
 		currentSlide ++;
 		scriptHolder[currentSlide].runSlide();
@@ -260,6 +351,18 @@ else
 //onClick for previous -> Decrease index, call code from the array at that index
 //code for each slide should begin with the removal of the code on the previous slide... but what about going backwards?
 
+//for testing, remove in final version:
+	window.onload=function(){
+		if(location.hash != "")
+		{
+			scriptHolder[0].transitionOut();
+			currentSlide = (location.hash.substring(1) -1);
+			scriptHolder[currentSlide].runSlide();
+		}
+
+	};
+
+
 </script>
 
 </head>
@@ -280,12 +383,34 @@ else
 				<!-- End Slide 1 -->
 
 				<!-- Slide 2 -->
+					<h1 id="slide2Header" class="slide2content" style="padding-top: 30px; visibility: hidden">Let's start with some inspiration</h1>
+					<div class="slide2Text slide2content" id="slide2Text" style="visibility: hidden"> 
+					<span id="span1">The most obvious place to look is at movies. There are a million examples, but the most commonly thought-of ones are Iron Man and Minority Report. </span>
+					<br>
+					<br>
+					<span id="span2">These movies introduce some great concepts, </span>
+					 <br>
+					 <br>
+					<span id= "span3">and also things that look great on screen but would be terrible in real life. </span>
+					</div>
 
 				<!-- End Slide 2 -->
 
 				<!-- Slide 3 -->
 
+					<div class="slide3content" id="slide3IntroText" style="visibility: hidden">
+					When designing AR user experiences, it is inportant to keep in mind three
+					</div>
+					<h1 id="slide3Header" class="slide3content">Fundemental Rules</h1>
+					<div class="slide3content" id="rule1"> Rule 1: All objects should be anchored</div>
+					<div class="slide3content" id="rule2"> Rule 2: Object should never appear without the user’s permission</div>
+					<div class="slide3content" id="rule3"> Rule 3: Arm gestures are not a suitable navigation method</div>
+
+					<div class="slide3content" id="ruleTip"> Keep these rules in mind, we'll come back to them in a bit</div>
+
 				<!-- End Slide 3 -->
+					<h1 id="slide4Header" class="slide3content">So what does an Augmented Reality UI consist of?</h1>
+					<h2 id="slide4SubHeader" class="slide3content">Let's talk about the most obvious element: Objects</h2>
 
 				<!-- Slide 4 -->
 
@@ -298,7 +423,7 @@ else
 				<!-- Slide 6 -->
 
 				<!-- End Slide 6 -->
-					<div class="nextbutton" onclick="nextSlide()"> Next</div>
+					<div class="nextbutton" id="nextbutton" onclick="nextSlide()"> Next</div>
 					<div class="prevbutton" style="color:grey" onclick="prevSlide()"> Previous</div>
 				</div>
 
