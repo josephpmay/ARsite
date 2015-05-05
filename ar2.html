@@ -12,7 +12,8 @@
 
 	//code for dynamically loading external javascript
 	var filesadded=""
-	
+	var singlePageMode = false
+	var audioMode = false
 
 	function jsGoToPage(filename)
 	{
@@ -89,10 +90,172 @@
 		}
 	}
 
+	function jsSinglePage()
+	{
+		//Need to add introduction first introduction.replacePage();
+		var pages = ["why", "ux", "examples", "make", "marketplace"]
+		for (i = 0; i < 5; i++)
+		{
+			alert("pages is" + pages[i])
+			if (filesadded.indexOf("["+pages[i]+"]")==-1)
+			{
+				function fuckasync2(callback) {
+
+				var scriptadded = document.createElement('script')
+				scriptadded.setAttribute("type", "text/javascript")
+				//Date.now() is added to the end of the filename so that if the main page is reloaded, the other pages will update if in cache
+				scriptadded.setAttribute("src", pages[i] + ".js?" + Date.now())
+				
+				scriptadded.onload = callback;
+				scriptadded.onreadystatechange = callback;
+
+				//adds line to head
+				document.getElementsByTagName("head")[0].appendChild(scriptadded)
+			}
+			//adds file name to list of loaded files
+			filesadded+="["+pages[i]+"]"
+
+			var addPage2 = function(toSwitch) {
+				alert("pages is not" + toSwitch)
+				switch(toSwitch)
+			{
+				case "why":
+					why.addPage()
+					alert("test")
+					break;
+				case "ux":
+					ux.addPage()
+					alert("test")
+					break;
+				case "marketplace":
+					marketplace.addPage()
+					alert("test")
+					break;
+				case "make":
+					make.addPage()
+					alert("test")
+					break;
+				case "examples":
+					examples.addPage()
+					alert("test")
+					break;
+
+			}
+			}
+				var testHolder = pages[i]
+				alert("testHolder is" + testHolder)
+				switch(testHolder)
+				{
+				case "why":
+					fuckasync2(function() {addPage2("why");});
+					break;
+				case "ux":
+					fuckasync2(function() {addPage2("ux");});
+					break;
+				case "marketplace":
+					fuckasync2(function() {addPage2("marketplace");});
+					break;
+				case "make":
+					fuckasync2(function() {addPage2("make");});
+					break;
+				case "examples":
+					fuckasync2(function() {addPage2("examples");});
+					break;
+				}
+			//	var addPage3 = function() {addPage2(testHolder);}
+
+		//	fuckasync2(addPage3);
+			}
+			else
+			{
+				switch(pages[i])
+			{
+				case "why":
+					why.addPage()
+					alert("test")
+					break;
+				case "ux":
+					ux.addPage()
+					alert("test")
+					break;
+				case "marketplace":
+					marketplace.addPage()
+					alert("test")
+					break;
+				case "make":
+					make.addPage()
+					alert("test")
+					break;
+				case "examples":
+					examples.addPage()
+					alert("test")
+					break;
+			}
+			}
+			alert("page added");
+		}
+
+
+		//loop through page names
+		//if not in filesAdded, adds it
+		//appends all files to end of "page" div
+		//need to disable next page buttons
+	}
+
+	function setCookie(cName, cValue, cDays)
+	{
+		var d = new Date();
+		d.setTime(d.getTime() + (cDays*24*60*60*1000));
+		var expires = "expires=" + d.toUTCString();
+		document.cookie = cName + "=" + cValue + ";" + expires;
+	}
+
+	function getCookie(cName)
+	{
+		var name = cName + "=";
+    	var ca = document.cookie.split(';');
+    	for(var i=0; i<ca.length; i++) 
+    	{
+        	var c = ca[i];
+        	while (c.charAt(0)==' ') 
+        		c = c.substring(1);
+       		if (c.indexOf(name) == 0) 
+        		return c.substring(name.length,c.length);
+    	}
+    return "";
+	}
+
+	function settings(single, audio)
+	{
+		if(single)
+			setCookie("singlePage", "true", 1000)
+		else
+			setCookie("singlePage", "false", 1000)
+
+
+		if(audio)
+			setCookie("audioC", "true", 1000)
+		else
+			setCookie("audioC", "true", 1000)
+		//check to see if cookie (and thus page) already set
+		//if not, set cookie, set page
+	}
+
 	window.onload=function(){
 		if(location.hash != "")
 		{
 			jsGoToPage(location.hash.substring(1))
+		}
+		if(getCookie("singlePage") == "true")
+		{
+			singlePageMode = true;
+			jsSinglePage();
+			//convert to single page mode
+		}
+		if(getCookie("audioC") == "true")
+		{
+			audioMode = true;
+			//convert to audio mode (may not be necessary, just check for audio mode when switching to audio page)
 		}
 
 	};
@@ -104,6 +267,7 @@
 </head>
 
 <body>
+	<noscript>This site requires Javascript to operate. If you are unable to use Javascript, you may view a text-only version of this page @ [text URL]</noscript>
 
 				<div id="delta" onclick="document.getElementById('nav').style.display='initial' "> 
 					<img src="delta.svg" alt="menue button">
@@ -126,8 +290,38 @@
 		<div class="menueitem"onclick=" jsGoToPage('examples'); document.getElementById('nav').style.display='none'; scroll(0,0)"> Examples</div>
 		<div class="menueitem"onclick=" jsGoToPage('make'); document.getElementById('nav').style.display='none'; scroll(0,0)"> Make</div>
 		<div class="menueitem"onclick=" jsGoToPage('marketplace'); document.getElementById('nav').style.display='none'; scroll(0,0)"> Marketplace</div>
+		<div class="specialButton" onclick="document.getElementById('accessibility').style.display='initial' ">Site Accessibility and Customization </div>
 
 
+	</div>
+
+	<div id="accessibility">
+
+	<div class="outterSpan"> <div class="inner1"> View as single page: </div> <div class="inner2"> 		
+	<div class="onoffswitch">
+    		<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="singlePage">
+    		<label class="onoffswitch-label" for="singlePage">
+       		 	<span class="onoffswitch-inner"></span>
+       		 	<span class="onoffswitch-switch"></span>
+   			</label>
+		</div> </div> </div>
+		<div class="outterSpan"> <div class="inner1"> Replace timed visual tour with audio tour: </div> <div class="inner2"> 		
+	<div class="onoffswitch">
+    		<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="audioTour">
+    		<label class="onoffswitch-label" for="audioTour">
+       		 	<span class="onoffswitch-inner"></span>
+       		 	<span class="onoffswitch-switch"></span>
+   			</label>
+		</div> </div> </div>
+	
+
+		<div style="clear: both"></div>
+
+	<br>
+
+		<div class="outterSpan" style="width: 167px"><input type="button" class="btn" value="SAVE AND CLOSE" onclick="document.getElementById('accessibility').style.display='none', settings(document.getElementById('singlePage').checked, document.getElementById('audioTour').checked)"> </div>
+
+	<!--DO OTHER STUFF ON CLICK -->
 	</div>
 	
 
