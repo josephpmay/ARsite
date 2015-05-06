@@ -151,7 +151,7 @@
 				switch(testHolder)
 				{
 				case "introduction":
-					fuckasync2(function() {replacePage2("introduction");});
+					fuckasync2(function() {addPage2("introduction");});
 					break;
 				case "why":
 					fuckasync2(function() {addPage2("why");});
@@ -250,14 +250,10 @@
 		}
 		else
 		{
-			alert(getCookie("singlePage"))
 			if(getCookie("singlePage") == "true")
 			{
-				alert("single test")
 				introduction.replacePage() //problem line
-				alert("single test 2")
 				setCookie("singlePage", "false", 1000)
-				alert("single test")
 			}
 		}
 
@@ -376,8 +372,8 @@
 
 			<p>This guide contains five chapters. I recommend that you read them in order, but if you would like to skip a section, you can access the table of contents in the (icon, possibly eye glasses) menu. I also should note (want to inform you) that some sections hijack your browser scrolling for a more interactive experience. If this bothers you or creates unintended effects in your browser, it can be turned off in the (icon) menu. Finally, a text-and-image-only accessibility version is available at text.url.com. Now, put on your glasses, turn on, tune in, and…</p>
 
-				<h1 style="text-align: right; cursor: pointer" onclick=" jsGoToPage('why'); scroll(0,0)">Chapter 1:</h1>
-				<h2 style="text-align: right; cursor: pointer" onclick=" jsGoToPage('why'); scroll(0,0)">Why would I ever want <br> Augmented Reality?</h2>
+				<h1 style="text-align: right; cursor: pointer" onclick=" jsGoToPage('why'); window.scroll(0,0); location.hash = '#why'">Chapter 1:</h1>
+				<h2 style="text-align: right; cursor: pointer" onclick=" jsGoToPage('why'); window.scroll(0,0); location.hash = '#why'">Why would I ever want <br> Augmented Reality?</h2>
 
 			</div>
 
