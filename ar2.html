@@ -93,10 +93,10 @@
 	function jsSinglePage()
 	{
 		//Need to add introduction first introduction.replacePage();
-		var pages = ["why", "ux", "examples", "make", "marketplace"]
-		for (i = 0; i < 5; i++)
+		var pages = ["introduction","why", "ux", "examples", "make", "marketplace"]
+		for (i = 0; i < 6; i++)
 		{
-			alert("pages is" + pages[i])
+			
 			if (filesadded.indexOf("["+pages[i]+"]")==-1)
 			{
 				function fuckasync2(callback) {
@@ -116,36 +116,43 @@
 			filesadded+="["+pages[i]+"]"
 
 			var addPage2 = function(toSwitch) {
-				alert("pages is not" + toSwitch)
+				
 				switch(toSwitch)
 			{
+				case "introduction":
+					introduction.replacePage()
+					break;
+
 				case "why":
 					why.addPage()
-					alert("test")
+					
 					break;
 				case "ux":
 					ux.addPage()
-					alert("test")
+					
 					break;
 				case "marketplace":
 					marketplace.addPage()
-					alert("test")
+					
 					break;
 				case "make":
 					make.addPage()
-					alert("test")
+					
 					break;
 				case "examples":
 					examples.addPage()
-					alert("test")
+					
 					break;
 
 			}
 			}
 				var testHolder = pages[i]
-				alert("testHolder is" + testHolder)
+				
 				switch(testHolder)
 				{
+				case "introduction":
+					fuckasync2(function() {replacePage2("introduction");});
+					break;
 				case "why":
 					fuckasync2(function() {addPage2("why");});
 					break;
@@ -170,29 +177,33 @@
 			{
 				switch(pages[i])
 			{
+				case "introduction":
+					introduction.replacePage()
+					break;
+
 				case "why":
 					why.addPage()
-					alert("test")
+					
 					break;
 				case "ux":
 					ux.addPage()
-					alert("test")
+					
 					break;
 				case "marketplace":
 					marketplace.addPage()
-					alert("test")
+					
 					break;
 				case "make":
 					make.addPage()
-					alert("test")
+					
 					break;
 				case "examples":
 					examples.addPage()
-					alert("test")
+					
 					break;
 			}
 			}
-			alert("page added");
+			
 		}
 
 
@@ -227,9 +238,11 @@
 
 	function settings(single, audio)
 	{
+		alert(single)
+		alert(audio)
 		if(single)
 		{
-			if(getCookie("singlePage") !=true)
+			if(getCookie("singlePage") != "true")
 			{
 				setCookie("singlePage", "true", 1000)
 				jsSinglePage()
@@ -237,10 +250,14 @@
 		}
 		else
 		{
-			if(getCookie("singlePage") == true)
+			alert(getCookie("singlePage"))
+			if(getCookie("singlePage") == "true")
 			{
-				introduction.replacePage()
+				alert("single test")
+				introduction.replacePage() //problem line
+				alert("single test 2")
 				setCookie("singlePage", "false", 1000)
+				alert("single test")
 			}
 		}
 
@@ -248,7 +265,7 @@
 		if(audio)
 			setCookie("audioC", "true", 1000)
 		else
-			setCookie("audioC", "true", 1000)
+			setCookie("audioC", "false", 1000)
 		//check to see if cookie (and thus page) already set
 		//if not, set cookie, set page
 	}
@@ -262,11 +279,13 @@
 		{
 			singlePageMode = true;
 			jsSinglePage();
+			document.getElementById('singlePage').checked = true;
 			//convert to single page mode
 		}
 		if(getCookie("audioC") == "true")
 		{
 			audioMode = true;
+			document.getElementById('audioTour').checked = true;
 			//convert to audio mode (may not be necessary, just check for audio mode when switching to audio page)
 		}
 
