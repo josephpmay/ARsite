@@ -21,9 +21,9 @@
 	{
 		transform: rotateY(90deg);
 		-webkit-transform: rotateY(90deg);
-		-moz-transform: rotate(9deg);
-    	-o-transform: rotate(90deg);
-    	-ms-transform: rotate(90deg);
+		-moz-transform: rotateY(90deg);
+    	-o-transform: rotateY(90deg);
+    	-ms-transform: rotateY(90deg);
 	}
 
 	#slide1Text
@@ -229,6 +229,187 @@
 		left: 67.5%;
 	}
 
+	#slide5Header
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top: 5%;
+		visibility: hidden;
+		font-size: 3vh;
+	}
+
+	#slide5Intro
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top: 10%;
+		visibility: hidden;
+		font-size: 5vh;
+	}
+
+	#slide5Text
+	{
+		position: absolute;
+		width: 75%;
+		text-align: center;
+		top: 60%;
+		left: 12.5%;
+		visibility: hidden;
+		font-size: 3vh;
+	}
+	#globe2
+	{
+		position: absolute;
+		visibility: hidden;
+		width: 20%;
+		top: 20%;
+		left: 40%;
+	}
+
+	#number1
+	{
+		left: 0%;
+		width: 20%;
+		position: absolute;
+		visibility: hidden;
+		top: 15%;
+		font-size: 15vh;
+		margin-top: 0px;
+	}
+
+	#slide6Text
+	{
+		left: 30%;
+		width: 70%;
+		position: absolute;
+		visibility: hidden;
+		font-size: 3vh;
+		top: 15%;
+
+	}
+
+		#slide7Header
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top: 5%;
+		visibility: hidden;
+		font-size: 3vh;
+	}
+
+	#slide7Text
+	{
+		position: absolute;
+		width: 75%;
+		text-align: center;
+		top: 30%;
+		left: 12.5%;
+		visibility: hidden;
+		font-size: 3vh;
+	}
+
+	#slide8Text
+	{
+		position: absolute;
+		width: 75%;
+		text-align: center;
+		top: 30%;
+		left: 12.5%;
+		visibility: hidden;
+		font-size: 5vh;
+	}
+
+	#slide9Header
+	{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top: 5%;
+		visibility: hidden;
+		font-size: 3vh;
+	}
+
+	#slide9Text
+	{
+		position: absolute;
+		width: 75%;
+		text-align: center;
+		top: 30%;
+		left: 12.5%;
+		visibility: hidden;
+		font-size: 3vh;
+	}
+
+	#number2
+	{
+		left: 0%;
+		width: 20%;
+		position: absolute;
+		visibility: hidden;
+		top: 15%;
+		font-size: 15vh;
+		margin-top: 0px;
+	}
+
+	#slide10Text
+	{
+		left: 30%;
+		width: 70%;
+		position: absolute;
+		visibility: hidden;
+		font-size: 3vh;
+		top: 15%;
+
+	}
+
+		#number3
+	{
+		left: 0%;
+		width: 20%;
+		position: absolute;
+		visibility: hidden;
+		top: 5%;
+		font-size: 15vh;
+		margin-top: 0px;
+	}
+
+		#slide11Intro
+	{
+		position: absolute;
+		width: 70%;
+		text-align: center;
+		top: 5%;
+		visibility: hidden;
+		font-size: 3vh;
+		left: 30%;
+	}
+
+		#point3
+		{
+			position: absolute;
+		width: 70%;
+		text-align: center;
+		top: 10%;
+		visibility: hidden;
+		font-size: 6vh;
+		left: 20%;
+		}
+
+			#slide11Text1
+	{
+		position: absolute;
+		width: 85%;
+		text-align: center;
+		top: 40%;
+		visibility: hidden;
+		font-size: 2.5vh;
+		left: 7.5%;
+	}
+
+
 
 
 </style>
@@ -346,54 +527,83 @@ var slide4 = new Slide()
 var slide5 = new Slide()
 	slide5.runSlide= function(){
 
+		Velocity(document.getElementById("slide5Header"), {opacity: 1}, {duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("slide5Intro"), "fadeIn", {delay: 1500, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("globe2"), "fadeIn", {delay: 1500, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("slide5Text"), "fadeIn", {delay: 3000, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("nextbutton"), {backgroundColor: "#33CC66", backgroundColorAlpha: 1}, {delay: 3000, duration: 1000});
+
+
 	};
 
 var slide6 = new Slide()
 	slide6.runSlide= function(){
 
+		Velocity(document.getElementById("number1"), {translateX: ["0px", "-1000px"]}, {duration: 500, visibility: "visible"});
+		Velocity(document.getElementById("slide6Text"), {translateX: ["-10%", "700px"]}, {delay: 1000, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("nextbutton"), {backgroundColor: "#33CC66", backgroundColorAlpha: 1}, {delay: 1500, duration: 1000});
+
 	};
 
 var slide7 = new Slide()
 	slide7.runSlide= function(){
+		Velocity(document.getElementById("slide7Header"), {opacity: 1}, {duration: 1000, visibility: "visible"});
+	
+		Velocity(document.getElementById("slide7Text"), "fadeIn", {delay: 1500, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("nextbutton"), {backgroundColor: "#33CC66", backgroundColorAlpha: 1}, {delay: 3000, duration: 1000});
 
 	};
 
 var slide8 = new Slide()
 	slide8.runSlide= function(){
 
+		Velocity(document.getElementById("slide8Text"), "fadeIn", {delay: 1500, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("nextbutton"), {backgroundColor: "#33CC66", backgroundColorAlpha: 1}, {delay: 2000, duration: 1000});
+
+
+
 	};
 
 var slide9 = new Slide()
 	slide9.runSlide= function(){
+
+		Velocity(document.getElementById("slide9Header"), {opacity: 1}, {duration: 1000, visibility: "visible"});
+	
+		Velocity(document.getElementById("slide9Text"), "fadeIn", {delay: 1500, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("nextbutton"), {backgroundColor: "#33CC66", backgroundColorAlpha: 1}, {delay: 3000, duration: 1000});
+
 
 	};
 
 var slide10 = new Slide()
 	slide10.runSlide= function(){
 
+		Velocity(document.getElementById("number2"), {translateX: ["0px", "-1000px"]}, {duration: 500, visibility: "visible"});
+		Velocity(document.getElementById("slide10Text"), {translateX: ["-10%", "700px"]}, {delay: 1000, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("nextbutton"), {backgroundColor: "#33CC66", backgroundColorAlpha: 1}, {delay: 1500, duration: 1000});
+
+
 	};
 
 var slide11 = new Slide()
 	slide11.runSlide= function(){
 
-	};
+		Velocity(document.getElementById("number3"), {translateX: ["0px", "-1000px"]}, {duration: 1000, delay: 500, visibility: "visible"});
+		Velocity(document.getElementById("slide11Intro"), {translateX: ["-10%", "700px"]}, {delay: 1500, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("point3"), {scaleX: 1.1, scaleY: 1.1}, {delay: 4000, duration: 1000, visibility: "visible"});
+		Velocity(document.getElementById("slide11Text1"), {translateX: ["0%", "700px"]}, {delay: 6500, duration: 1000, visibility: "visible"});
 
-var slide12 = new Slide()
-	slide12.runSlide= function(){
 
-	};
-
-var slide13 = new Slide()
-	slide13.runSlide= function(){
 
 	};
 
 
 
-var scriptHolder = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11, slide12, slide13]
+
+var scriptHolder = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8, slide9, slide10, slide11]
 
 function nextSlide() {
-if (currentSlide<12)
+if (currentSlide<11)
 	{
 		scriptHolder[currentSlide].transitionOut();
 		currentSlide ++;
@@ -401,7 +611,9 @@ if (currentSlide<12)
 	}
 else
 	{
-		currentSlide = 12
+		currentSlide = 11
+		jsGoToPage('examples'); window.scroll(0,0)
+		location.hash = '#examples'
 	}
 
 }
@@ -509,32 +721,62 @@ else
 					<h1 id="slide5Intro" class="slide5content">Let's take a globe.</h1>
 					<img class="slide5content" id="globe2" src="globe.svg" alt="image of globe">
 					<span id="slide5Text" class="slide5content">A user could walk up to the globe and spin it around. She also could do things with this virtual globe that aren't possible with a real globe. She could zoom into a country, pin her favorite locations, or visualize live seismic activity.</span>
+				
 
 				<!--A User interacts with virtual objects just like she would real world objects. Let's take a globe. A user could walk up to the globe and spin it around. She also could do things with this virtual globe that aren't possible with a real globe. She could zoom into a country, pin her favorite locations, or visualize live seismic activity 
 				-->
 				<!-- End Slide 5 -->
 
 				<!-- Slide 6 -->
-				<!--This brings us to our first rule: All objects should be anchored. Anchoring an object means that it stays attached to a place in the real world. Although it may often be tempting to float objects in front of your face, doing so breaks the illusion that objects are objects. If you need to look more closely at an object, either walk to the object or move its anchor location to a surface nearby. -->
+				<h1 id="number1" class="slide6content">1</h1>
+				<span id="slide6Text" class="slide6content">
+				This brings us to our first rule: All objects should be anchored. Anchoring an object means that it stays attached to a place in the real world. Although it may often be tempting to float objects in front of your face, doing so breaks the illusion that objects are objects. If you need to look more closely at an object, either walk to the object or move its anchor location to a surface nearby. </span>
 				<!-- End Slide 6 -->
 
 				<!--Slide 7 -->
+				<h1 id="slide7Header" class="slide7content">The next element of an AR user interface is "Info"</h1>
+
+				<span id="slide7Text" class="slide7content">
+				Info is flat information that can be integrated into objects or viewed by itself in a non-anchored way. Info is very much what you would traditionally see on a computer, tablet, or smartphone. Info could be your Twitter feed, but it could also be a program such as a word processor or web browser. Info is AR's way of handeling legacy programs and is also for mediums that don't benifit from being in 3D space. 
+				</span>
 
 				<!-- End Slide 7 -->
 
 				<!--Slide 8 -->
 
+				<span id="slide8Text" class="slide8content">Integrating info into objects is a major use of augmented reality. For example, a TV show would be an info element that could be displayed on a TV object that is anchored to your living room wall. If you decide mid-episode that you want to go for a run, you could move the TV show to your face and bring it with you. </span>
+
 				<!-- End Slide 8 -->
 
 				<!--Slide 9 -->
+				<h1 id="slide9Header" class="slide9content">The last element of an AR user interface is Experiences. </h1>
+
+				<span id="slide9Text" class="slide9content">
+				Experiences come in all shapes and sizes and are perhaps the most exciting use of AR. An experience could involve building a snowman with your favorite animated movie character, touring and modifying the 3D model of a building, or being directed item by item on your shopping list inside a grocery store. 
+				</span>
 
 				<!-- End Slide 9 -->
 
 				<!--Slide 10 -->
+				<h1 id="number2" class="slide10content">2</h1>
+				<span id="slide10Text" class="slide10content">
+				Now for our second rule: objects should never appear without a user's permission. In other words, no pop-up ads. For example, it would be a violation of this rule for a giant ceral-selling tiger to automatically appear by the entrance of a grocery store for all users. Instead, the tiger could appear only for users that have chosen to use the store's experience. If automatic objects were allowed, they would quickly become obtrusive and annoying to users. By restricting non-user placed objects to inside experiences, we can still have promotional content while letting the user choose, on his own terms, if and when to see it. 
+				</span>
 
 				<!-- End Slide 10 -->
 
 				<!--Slide 11 -->
+				<h1 id="number3" class="slide11content">3</h1>
+				<span id="slide11Intro" class="slide11content">
+				My last rule is the most controversial and the most often violated, but it is also the one I feel most strongly about.</span>
+				<h1 id="point3" class="slide11content"> Using arm gestures is not the proper way to navigate an AR environment. </h1>
+				<span id="slide11Text1" class="slide11content">The idea of arm gestures seems natural because of Minority Report and how we interact with our real-world environment. However, we rarely hold real-world objects in mid air for periods of time, and when we touch and manipulate things we get immediate physical feedback that slightly flexes stretched muscles. Using arm gestures for AR requires holding your arm at an unnatural angle for long periods of time with no feedback, which quickly leads to fatigue and pain. If you look at the history of consumer electronics, every product that has required similar arm stress has failed. 
+				<br>
+				<br>
+				This is not an easy restriction to get around. Microsoft, Magic Leap, and Meta all use arm gestures as their primary IO method. I think the best solution may be hand gestures that can be performed while your arm is by your side or even in your pocket. This would either require users to wear a glove or advanced muscel/nerve sensing technology that doesn't yet exist. 
+				</span>
+
+
 
 				<!-- End Slide 11 -->
 					<div class="nextbutton" id="nextbutton" onclick="nextSlide()"> Next</div>
